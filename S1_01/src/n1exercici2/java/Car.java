@@ -2,17 +2,17 @@ package n1exercici2.java;
 
 public class Car {
 	
-	private static final String brand;
+	private static final String BRAND;
 	private static String model;
-	private final int power;
+	private final int POWER;
 	
 	static {
-		brand = "Citröen";
+		BRAND = "Citröen";
 		model = "Twingo";
 	}
 	
 	{
-		power = 330;
+		POWER = 330;
 	}
 	
 	public Car () {
@@ -25,7 +25,7 @@ public class Car {
 	
 	//getters
 	public static String getBrand () {
-		return brand;
+		return BRAND;
 	}
 	
 	public static String getModel () {
@@ -33,7 +33,7 @@ public class Car {
 	}
 	
 	public int getPower () {
-		return power;
+		return POWER;
 	}
 	
 	//setters
@@ -51,6 +51,6 @@ public class Car {
 	}
 	
 	public String toString() {
-		return "\nBrand: " +brand+ "\n"+ "Model: " +model+ "\n"+ "Power: " +power+ "CC\n";
+		return "\nBrand: " +BRAND+ "\n"+ "Model: " +model+ "\n"+ "Power: " +POWER+ "CC\n";
 	}
 }
