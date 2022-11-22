@@ -6,7 +6,7 @@ public class App {
 		// TODO Auto-generated method stub
 
 		//instanciem nou objecte de classe Car
-		Car car1 = new Car ();
+		Car car1 = new Car ("Twingo", 330);
 		//accedim per imprimir a les propietats static a través dels getter de la classe Car
 		System.out.println(Car.getBrand());
 		System.out.println(Car.getModel());

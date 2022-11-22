@@ -7,16 +7,12 @@ public class Car {
 	private final int power;
 	
 	static {
-		BRAND = "Citröen";
-		model = "Twingo";
+		BRAND = "Citröen";	
 	}
 	
-	public Car (int power) {
+	public Car (String model, int power) {
+		Car.model = model;
 		this.power = power;
-	}
-
-	public Car () {
-		this.power = 330;
 	}
 	
 	//getters
