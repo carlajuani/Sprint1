@@ -41,19 +41,12 @@ public class App {
 	      int selectedOption = scanningForInt("Please select an option number from the menu:");
 	      switch(selectedOption)
 	      {
-	       case 1: //new writer+addToArray
-	    	   editorialStaff.add(createWriter());
-	    	   System.out.println("The writer was successfully added to the staff database");
+	       case 1: //add new writer to array
+	    	   addNewWriter(editorialStaff);
 	    	   break;
 	    	   
 	       case 2: //remove writer from array
-	    	   int writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
-	    	   if (writersIndex == -1) {
-	    		   System.out.println("ERROR. The writer is not in the staff database");
-	    	   } else {
-	    		   editorialStaff.remove(writersIndex);
-		    	   System.out.println("The writer was successfully removed from the staff database"); 
-	    	   }
+	    	   removeWriterFromArray(editorialStaff);
 	    	   break;
 	    	   
 	       case 3: //add article to writer (in Array), first selecting type of article and creating each with a different method
@@ -95,65 +88,23 @@ public class App {
 			    	   break;
 			       	  }
 			      }while(!chosen);
-		   	   writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
-		   	   if (writersIndex == -1) {
-		   		   System.out.println("ERROR. The writer is not in the staff database");
-		   	   } else {
-		   		   addArticleToWriter(editorialStaff, article, writersIndex);
-		    	   System.out.println("The article was added correctly to the database");
-		   	   }
+		   	    addArticleToWriter(editorialStaff, article);
 	    	   break;
 	    	   
-		   case 4: //Delete article from arrayList articles, from writer from staff arrayList, searching writer's and article index respectively
-			   writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
-			   if (writersIndex == -1) {
-				   System.out.println("ERROR. The writer is not in the staff database");  
-			   } else {
-				   int articlesIndex = editorialStaff.get(writersIndex).searchIndexInArray(scanningForString("Please indicate the article's title"));
-				   if (articlesIndex == -1) {
-					   System.out.println("ERROR. The article is not in the writer's database");
-			   	   } else {
-			   		   removeArticleFromWriter(editorialStaff, writersIndex, articlesIndex);
-			    	   System.out.println("The article was deleted successfully from the writer's collection");
-			   	   } 
-			   }   
+		   case 4: //Remove article from arrayList articles, from writer from staff arrayList
+			   removeWritersArticle(editorialStaff);
 	    	   break;
 	    	   
-		   case 5: //show writer's articles arrayList from arrayList staff, by getting writer's index and calling showArticles class method
-			   writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
-			   if (writersIndex == -1) {
-				   System.out.println("ERROR. The writer is not in the staff database");
-		   	   } else {
-		   		   System.out.println("Articles:\n" +editorialStaff.get(writersIndex).showArticles()); 
-		   	   }
+		   case 5: //show writer's articles arrayList from arrayList staff
+			   showWritersArticles(editorialStaff);
 	    	   break;
 	    	   
-		   case 6: //Calculate article's score finding writer's index in staff arrayList and article's index in writer's articles arrayList, and getter
-			   writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
-			   if (writersIndex == -1) {
-				   System.out.println("ERROR. The writer is not in the staff database");  
-			   } else {
-				   int articlesIndex = editorialStaff.get(writersIndex).searchIndexInArray(scanningForString("Please indicate the article's title"));
-				   if (articlesIndex == -1) {
-					   System.out.println("ERROR. The article is not in the writer's database");
-			   	   } else {
-			   		   System.out.println("Score: " +editorialStaff.get(writersIndex).getArticles().get(articlesIndex).getScore()+ "pts"); 
-			   	   }
-			   } 
+		   case 6: //Calculate article's score
+			   showArticlesScoreOrPrice(editorialStaff, 's');
 			   break;
 	    	   
-		   case 7: //Calculate article's price finding writer's index in staff arrayList and article's index in writer's articles arrayList, and getter
-			   writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
-			   if (writersIndex == -1) {
-				   System.out.println("ERROR. The writer is not in the staff database");  
-			   } else {
-				   int articlesIndex = editorialStaff.get(writersIndex).searchIndexInArray(scanningForString("Please indicate the article's title"));
-				   if (articlesIndex == -1) {
-					   System.out.println("ERROR. The article is not in the writer's database");
-			   	   } else {
-			   		   System.out.println("Price: " +editorialStaff.get(writersIndex).getArticles().get(articlesIndex).getPrice()+ "€");
-			   	   }
-			   }
+		   case 7: //Calculate article's price
+			   showArticlesScoreOrPrice(editorialStaff, 'p');
 			   break;
 
 	       case 8:
@@ -163,6 +114,84 @@ public class App {
 	       	  }
 	      }while(!exit);
 	}
+	
+	//case 1
+	static ArrayList<Writer> addNewWriter (ArrayList<Writer> editorialStaff) {
+		editorialStaff.add(createWriter());
+ 	    System.out.println("The writer was successfully added to the staff database");
+		return editorialStaff;
+	}
+	
+	//case 2
+	static ArrayList<Writer> removeWriterFromArray (ArrayList<Writer> editorialStaff) {
+		int writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
+ 	    if (writersIndex == -1) {
+ 		    System.out.println("ERROR. The writer is not in the staff database");
+ 	    } else {
+		    editorialStaff.remove(writersIndex);
+		    System.out.println("The writer was successfully removed from the staff database"); 
+ 	    }
+		return editorialStaff;
+	}
+	
+	//case 3
+	static ArrayList<Writer> addArticleToWriter (ArrayList<Writer> editorialStaff, SportsArticle article) {
+		int writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
+   	    if (writersIndex == -1) {
+   	    	System.out.println("ERROR. The writer is not in the staff database");
+   	    } else {
+	    	editorialStaff.get(writersIndex).addArticle(article);
+		    System.out.println("The article was added correctly to the database");
+   	    }
+		return editorialStaff;
+	}
+	
+	//case 4
+	static ArrayList<Writer> removeWritersArticle (ArrayList<Writer> editorialStaff) {
+		int writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
+		   if (writersIndex == -1) {
+			   System.out.println("ERROR. The writer is not in the staff database");  
+		   } else {
+			   int articlesIndex = editorialStaff.get(writersIndex).searchIndexInArray(scanningForString("Please indicate the article's title"));
+			   if (articlesIndex == -1) {
+				   System.out.println("ERROR. The article is not in the writer's database");
+		   	   } else {
+		   		   editorialStaff.get(writersIndex).removeArticle(articlesIndex);
+		    	   System.out.println("The article was deleted successfully from the writer's collection");
+		   	   } 
+		   }   
+		return editorialStaff;
+	}
+	
+	//case 5
+	static void showWritersArticles(ArrayList<Writer> editorialStaff) {
+		int writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
+		   if (writersIndex == -1) {
+			   System.out.println("ERROR. The writer is not in the staff database");
+	   	   } else {
+	   		   System.out.println("Articles:\n" +editorialStaff.get(writersIndex).showArticles()); 
+	   	   }
+	}
+	
+	//case 6 and 7 score/price
+	static void showArticlesScoreOrPrice(ArrayList<Writer> editorialStaff, char atribute) {
+		int writersIndex = searchIndexInArray(editorialStaff, scanningForString("Please indicate writer's dni"));
+		   if (writersIndex == -1) {
+			   System.out.println("ERROR. The writer is not in the staff database");  
+		   } else {
+			   int articlesIndex = editorialStaff.get(writersIndex).searchIndexInArray(scanningForString("Please indicate the article's title"));
+			   if (articlesIndex == -1) {
+				   System.out.println("ERROR. The article is not in the writer's database");
+		   	   } else {
+		   		   if (atribute == 's') {
+		   			   System.out.println("Score: " +editorialStaff.get(writersIndex).getArticles().get(articlesIndex).getScore()+ "pts"); 
+		   		   } else if (atribute == 'p') {
+		   			   System.out.println("Price: " +editorialStaff.get(writersIndex).getArticles().get(articlesIndex).getPrice()+ "€");
+		   		   }
+		   	   }
+		   } 
+	}
+	
 	
 	//returns new object class writer with both atributes through the methods scan for string
 	static Writer createWriter () {
@@ -207,18 +236,7 @@ public class App {
 		String racingTeam = scanningForString("Please introduce the racing team is it about");
 		return new MotoRacingArticle (title, racingTeam);
 	}
-	
-	//adds the article through the addArticle writer's method, with parameters arrayList staff, and the article and writer's index in the respective arrayLists
-	static ArrayList<Writer> addArticleToWriter (ArrayList<Writer> editorialStaff, SportsArticle article, int writersIndex) {
-		editorialStaff.get(writersIndex).addArticle(article);
-		return editorialStaff;
-	}
-	
-	//removes the article through the removeArticle writer's method, with parameters arrayList staff, and the article and writer's index in the respective arrayLists
-	static ArrayList<Writer> removeArticleFromWriter (ArrayList<Writer> editorialStaff, int writersIndex, int articlesIndex) {
-		editorialStaff.get(writersIndex).removeArticle(articlesIndex);
-		return editorialStaff;
-	}
+		
 	
 	//returns the writer's index with the parameters arrayList staff and the writer's dni
 	static int searchIndexInArray (ArrayList<Writer> editorialStaff, String writersDni) {
