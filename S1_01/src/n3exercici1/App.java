@@ -184,9 +184,9 @@ public class App {
 				   System.out.println("ERROR. The article is not in the writer's database");
 		   	   } else {
 		   		   if (atribute == 's') {
-		   			   System.out.println("Score: " +editorialStaff.get(writersIndex).getArticles().get(articlesIndex).getScore()+ "pts"); 
+		   			   editorialStaff.get(writersIndex).getArticles().get(articlesIndex).calcScore(); 
 		   		   } else if (atribute == 'p') {
-		   			   System.out.println("Price: " +editorialStaff.get(writersIndex).getArticles().get(articlesIndex).getPrice()+ "€");
+		   			   editorialStaff.get(writersIndex).getArticles().get(articlesIndex).calcPrice();
 		   		   }
 		   	   }
 		   } 

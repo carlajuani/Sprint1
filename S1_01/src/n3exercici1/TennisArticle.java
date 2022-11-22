@@ -21,8 +21,8 @@ public class TennisArticle extends SportsArticle {
 		super(title);
 		this.competition = competition;
 		this.player = player;
-		this.price = calcPrice();
-		this.score = calcScore();
+		this.price = 0;
+		this.score = 0;
 	}
 
 	public String getCompetition() {
@@ -41,19 +41,19 @@ public class TennisArticle extends SportsArticle {
 		this.player = player;
 	}
 	
-	public int calcPrice () {
-		int price = 150;
+	public void calcPrice () {
+		this.price = 150;
 		if (this.player.equalsIgnoreCase("Federer") || this.player.equalsIgnoreCase("Nadal") || this.player.equalsIgnoreCase("Djokovic")) {
-			price += 50;
+			this.price += 50;
 		}
-		return price;
+		System.out.println("Price: " +this.price+ "€");
 	}
 	
-	public int calcScore () {
-		int score = 4;
+	public void calcScore () {
+		this.score = 4;
 		if (this.player.equalsIgnoreCase("Federer") || this.player.equalsIgnoreCase("Nadal") || this.player.equalsIgnoreCase("Djokovic")) {
-			score += 3;
+			this.score += 3;
 		}
-		return score;
+		System.out.println("Score: " +this.score+ "pts");
 	}
 }

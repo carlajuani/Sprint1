@@ -18,8 +18,8 @@ private String racingTeam;
 	public MotoRacingArticle (String title, String racingTeam) {
 		super(title);
 		this.racingTeam = racingTeam;
-		this.price = calcPrice();
-		this.score = calcScore();
+		this.price = 0;
+		this.score = 0;
 	}
 
 	public String getRacingTeam() {
@@ -30,19 +30,19 @@ private String racingTeam;
 		this.racingTeam = racingTeam;
 	}
 	
-	public int calcPrice () {
-		int price = 100;
+	public void calcPrice () {
+		this.price = 100;
 		if (this.racingTeam.equalsIgnoreCase("Honda") || this.racingTeam.equalsIgnoreCase("Yamaha")) {
-			price += 50;
+			this.price += 50;
 		}
-		return price;
+		System.out.println("Price: " +this.price+ "€");
 	}
 	
-	public int calcScore () {
-		int score = 3;
+	public void calcScore () {
+		this.score = 3;
 		if (this.racingTeam.equalsIgnoreCase("Honda") || this.racingTeam.equalsIgnoreCase("Yamaha")) {
-			score += 3;
+			this.score += 3;
 		}
-		return score;
+		System.out.println("Score: " +this.score+ "pts");
 	}
 }

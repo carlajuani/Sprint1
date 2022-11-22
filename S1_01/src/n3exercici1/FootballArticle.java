@@ -44,8 +44,8 @@ public class FootballArticle extends SportsArticle {
 		this.competition = competition;
 		this.club = club;
 		this.player = player;
-		this.price = calcPrice();
-		this.score = calcScore();
+		this.price = 0;
+		this.score = 0;
 	}
 
 	public String getCompetition() {
@@ -72,33 +72,33 @@ public class FootballArticle extends SportsArticle {
 		this.player = player;
 	}
 	
-	public int calcPrice () {
-		int price = 300;
+	public void calcPrice () {
+		this.price = 300;
 		if (this.competition.equalsIgnoreCase("Champions League")) {
-			price += 100;
+			this.price += 100;
 		}
 		if (this.club.equalsIgnoreCase("Barca") || this.club.equalsIgnoreCase("Madrid")) {
-			price += 100;
+			this.price += 100;
 		}
 		if (this.player.equalsIgnoreCase("Ferran Torres") || this.player.equalsIgnoreCase("Benzema")) {
-			price += 50;
+			this.price += 50;
 		}
-		return price;
+		System.out.println("Price: " +this.price+ "€");
 	}
 	
-	public int calcScore () {
-		int score = 5;
+	public void calcScore () {
+		this.score = 5;
 		if (this.competition.equalsIgnoreCase("Champions League")) {
-			score += 3;
+			this.score += 3;
 		} else if (this.competition.equalsIgnoreCase("League")) {
-			score += 2;
+			this.score += 2;
 		}
 		if (this.club.equalsIgnoreCase("Barca") || this.club.equalsIgnoreCase("Madrid")) {
-			score += 1;
+			this.score += 1;
 		}
 		if (this.player.equalsIgnoreCase("Ferran Torres") || this.player.equalsIgnoreCase("Benzema")) {
-			score += 1;
+			this.score += 1;
 		}
-		return score;
+		System.out.println("Score: " +this.score+ "pts");
 	}
 }

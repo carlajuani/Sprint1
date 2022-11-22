@@ -19,8 +19,8 @@ public class Formula1Article extends SportsArticle {
 	public Formula1Article (String title, String racingTeam) {
 		super(title);
 		this.racingTeam = racingTeam;
-		this.price = calcPrice();
-		this.score = calcScore();
+		this.price = 0;
+		this.score = 0;
 	}
 
 	public String getRacingTeam() {
@@ -31,19 +31,19 @@ public class Formula1Article extends SportsArticle {
 		this.racingTeam = racingTeam;
 	}
 	
-	public int calcPrice () {
-		int price = 100;
+	public void calcPrice () {
+		this.price = 100;
 		if (this.racingTeam.equalsIgnoreCase("Ferrari") || this.racingTeam.equalsIgnoreCase("Mercedes")) {
-			price += 50;
+			this.price += 50;
 		}
-		return price;
+		System.out.println("Price: " +this.price+ "€");
 	}
 	
-	public int calcScore () {
-		int score = 4;
+	public void calcScore () {
+		this.score = 4;
 		if (this.racingTeam.equalsIgnoreCase("Ferrari") || this.racingTeam.equalsIgnoreCase("Mercedes")) {
-			score += 2;
+			this.score += 2;
 		}
-		return score;
+		System.out.println("Score: " +this.score+ "pts");
 	}
 }

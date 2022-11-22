@@ -28,8 +28,8 @@ public class BasketArticle extends SportsArticle {
 		super(title);
 		this.competition = competition;
 		this.club = competition;
-		this.price = calcPrice();
-		this.score = calcScore();
+		this.price = 0;
+		this.score = 0;
 	}
 
 	public String getCompetition() {
@@ -48,27 +48,27 @@ public class BasketArticle extends SportsArticle {
 		this.club = club;
 	}
 	
-	public int calcPrice () {
-		int price = 250;
+	public void calcPrice () {
+		this.price = 250;
 		if (this.competition.equalsIgnoreCase("EuroLeague")) {
-			price += 75;
+			this.price += 75;
 		}
 		if (this.club.equalsIgnoreCase("Barca") || this.club.equalsIgnoreCase("Madrid")) {
-			price += 75;
+			this.price += 75;
 		}
-		return price;
+		System.out.println("Price: " +this.price+ "€");
 	}
 	
-	public int calcScore () {
-		int score = 4;
+	public void calcScore () {
+		this.score = 4;
 		if (this.competition.equalsIgnoreCase("EuroLeague")) {
-			score += 3;
+			this.score += 3;
 		} else if (this.competition.equalsIgnoreCase("ABC")) {
-			score += 2;
+			this.score += 2;
 		}
 		if (this.club.equalsIgnoreCase("Barca") || this.club.equalsIgnoreCase("Madrid")) {
-			score += 1;
+			this.score += 1;
 		}
-		return score;
+		System.out.println("Score: " +this.score+ "pts");
 	}
 }
