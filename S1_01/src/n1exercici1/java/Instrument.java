@@ -28,8 +28,7 @@ public abstract class Instrument {
 		this.price = price;
 	}
 	
-	public void play () {
-	}
+	public abstract void play ();
 	
 	public String toString() {
 		return "BrassInstrument [name=" + name + ", price=" + price + "]";
