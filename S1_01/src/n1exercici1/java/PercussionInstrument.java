@@ -7,6 +7,7 @@ public class PercussionInstrument extends Instrument {
 	}
 	
 	public void play () {
-		super.play("percussion");
+		String message = "A " +name+ " is playing";
+		System.out.println(message);
 	}
 }

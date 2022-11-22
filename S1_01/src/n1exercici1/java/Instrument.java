@@ -28,9 +28,7 @@ public abstract class Instrument {
 		this.price = price;
 	}
 	
-	public void play (String typeOfInst) {
-		String message = "A " +typeOfInst+ " instrument is playing";
-		System.out.println(message);
+	public void play () {
 	}
 	
 	public String toString() {

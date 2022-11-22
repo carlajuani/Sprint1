@@ -12,7 +12,8 @@ public class BrassInstrument extends Instrument {
 	}
 
 	public void play () {
-		super.play("brass");
+		String message = "A " +name+ " is playing";
+		System.out.println(message);
 	}
 	
 	@Override

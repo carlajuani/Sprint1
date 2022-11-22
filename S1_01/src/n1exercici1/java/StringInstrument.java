@@ -12,6 +12,7 @@ public class StringInstrument extends Instrument {
 	}
 	
 	public void play () {
-		super.play("string");
+		String message = "A " +name+ " is playing";
+		System.out.println(message);
 	}
 }
