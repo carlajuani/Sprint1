@@ -4,23 +4,19 @@ public class Car {
 	
 	private static final String BRAND;
 	private static String model;
-	private final int POWER;
+	private final int power;
 	
 	static {
 		BRAND = "Citröen";
 		model = "Twingo";
 	}
 	
-	{
-		POWER = 330;
+	public Car (int power) {
+		this.power = power;
 	}
-	
+
 	public Car () {
-	}
-	
-	//canviem el valor de propietat model amb el constructor per evidenciar que no és final, es pot variar, tant amb constructor com amb setter
-	public Car (String model) {
-		model = "Twango";
+		this.power = 330;
 	}
 	
 	//getters
@@ -33,7 +29,7 @@ public class Car {
 	}
 	
 	public int getPower () {
-		return POWER;
+		return power;
 	}
 	
 	//setters
@@ -51,6 +47,6 @@ public class Car {
 	}
 	
 	public String toString() {
-		return "\nBrand: " +BRAND+ "\n"+ "Model: " +model+ "\n"+ "Power: " +POWER+ "CC\n";
+		return "\nBrand: " +BRAND+ "\n"+ "Model: " +model+ "\n"+ "Power: " +power+ "CC\n";
 	}
 }
