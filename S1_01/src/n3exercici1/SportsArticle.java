@@ -49,11 +49,9 @@ public abstract class SportsArticle {
 		this.price = price;
 	}
 	
-	public void calcPrice () {
-	}
+	public abstract void calcPrice ();
 	
-	public void calcScore () {
-	}
+	public abstract void calcScore ();
 	
 	public String toString () {
 		return "Title: " +this.title+ "\nBody: " +this.text+ "\nScore: " +this.score+ "pts\nPrice: " +this.price+ "€\n\n";
