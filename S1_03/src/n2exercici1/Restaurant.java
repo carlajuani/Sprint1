@@ -46,7 +46,7 @@ public class Restaurant {
 
 	@Override
 	public String toString() {
-		return "Restaurant [Name: " + name + "\nScore: " + score + "]\n";
+		return "Restaurant [Name: " + name + "   Score: " + score + "]\n";
 	}
 	
 	
