@@ -1,11 +1,9 @@
 package n3exercici1;
 /* Tindrà les dades d’una butaca:
-
 Atributs:
     Nombre de fila.
     Nombre de seient.
     Persona que reserva la butaca.
-
 Mètodes:
     Constructor amb tots els paràmetres.
     Getters per tots els atributs.

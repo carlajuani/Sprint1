@@ -1,5 +1,5 @@
 package n2exercici2;
-
+/*  */
 import java.util.*;
 
 public class App {
