@@ -50,16 +50,13 @@ public class Cinema {
 	    	   showCostumersReservation();
 	    	   break;
 	    	   
-	       case 3: //reservarButaca: Demana a l’usuari/ària un número de fila (crida al mètode introduirFila), un número de seient 
-	    	   		//(crida al mètode introduirSeient), el nom de la persona que fa la reserva (crida al mètode introduirPersona) 
-	    	   		//i reserva la butaca.
+	       case 3: //reservarButaca
 	    	   seatReservation();
 	    	   break;
 	    	   
-		   case 4: //Cancel seat reservation
-			   //anularReserva: Demana a l’usuari/ària un número de fila (crida al mètode introduirFila), un número de seient 
-			   //(crida al mètode introduirSeient) i elimina la reserva de la butaca.
-	    	   break;
+		   case 4: //anularReserva
+	    	   cancelSeatReservation();
+			   break;
 
 		   case 5: //Cancel costumer's reservation
 			   //anularReservaPersona: Demana a l’usuari/ària el nom de la persona (crida al mètode introduirPersona) 
@@ -97,11 +94,22 @@ public class Cinema {
 		}
 	}
 	
+	//Demana a l’usuari/ària un número de fila (crida al mètode introduirFila), un número de seient 
+	//(crida al mètode introduirSeient), el nom de la persona que fa la reserva (crida al mètode introduirPersona) 
+	//i reserva la butaca.
 	public void seatReservation (){
 		int rowNumber = introduceRowNumber();
 		int seatNumber = introduceSeatNumber();
 		String reservationName = introducePerson();
 		//seatManager.addSeat(rowNumber, seatNumber, reservationName); //AVIAM JAVA UN MOMENTET SIUSPLAU PERQUÈ SE M'ACUMULEN LES EXCEPTIONS JODER
+	}
+	
+	//anularReserva: Demana a l’usuari/ària un número de fila (crida al mètode introduirFila), un número de seient 
+	//(crida al mètode introduirSeient) i elimina la reserva de la butaca.
+	public void cancelSeatReservation () {
+		int rowNumber = introduceRowNumber();
+		int seatNumber = introduceSeatNumber();
+		//seatManager.removeSeat(rowNumber, seatNumber); MIAMIAMAIMIAMAIMASIMMAIMSAIJFSKJNDALFJ EXCEPTION
 	}
 	
 	public int introduceRowNumber () {
