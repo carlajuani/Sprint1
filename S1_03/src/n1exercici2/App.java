@@ -1,6 +1,6 @@
 package n1exercici2;
 
-import java.util.List;
+import java.util.*;
 import java.util.ListIterator;
 
 /* Crea i emplena un List<Integer>. 
@@ -12,10 +12,14 @@ public class App {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		List<Integer> intList = new List<Integer>();
-		List<Integer> intList2 = new List<Integer>();
-		ListIterator<Integer> it = intList.listIterator();
+		List<Integer> intList = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+		System.out.println("First list: " +intList);
 		
+		List<Integer> intList2 = new ArrayList<Integer>();
+		ListIterator<Integer> it = intList.listIterator(intList.size());
+		while (it.hasPrevious()) {
+				intList2.add(it.previous());
+		}
+		System.out.println("Second list: " +intList2);
 	}
-
 }
