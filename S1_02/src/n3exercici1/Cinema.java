@@ -1,26 +1,26 @@
 package n3exercici1;
 
+import java.util.*;
 import n2exercici1.Input;
 
 /* Contindrà tots els mètodes que permeten interactuar a l’usuari/ària amb l’aplicació.
 Atributs:
-    Nombre de files del cinema.
-    Nombre de seients per cada fila.
-    Un objecte de la classe GestioButaques
+    *Nombre de files del cinema.
+    *Nombre de seients per cada fila.
+    *Un objecte de la classe GestioButaques
 Mètodes:
-    *Constructor: no rebrà paràmetres. Crearà l’objecte de la classe GestióButaques. I cridarà al mètode demanarDadesInicials 
-    que inicialitzarà el nombre de files i de seients.
-    iniciar: començarà l’aplicació. Cridarà al mètode menu i en funció del número retornat, cridarà al mètode corresponent.
-   * menu: mostrarà les opcions del menú principal a l’usuari/ària, li demanarà el número de l’opció escollida i el retornarà.
-    mostrarButaques: 
-    mostrarButaquesPersona:
-    reservarButaca: 
-    anularReserva: 
-    anularReservaPersona:
-    introduirPersona: demana a l’usuari/ària el nom de la persona i el retorna si és correcte. Si conté números, llença una excepció personalitzada ExcepcioNomPersonaIncorrecte.
-    demanarDadesInicials: Demana a l’usuari/ària el nombre de files i seients i els guarda en els atributs corresponents. 
-    introduirFila: Demana el nombre de fila, si aquest està entre 1 i el nombre de files totals, el retorna. Si no, retorna una excepció personalitzada ExcepcioFilaIncorrecta.
-    introduirSeient: Demana el seient, si el número està entre 1 i el nombre total de seients, el retorna. Si no, retorna una excepció del tipus ExcepcioSeientIncorrecte.
+    *Constructor: 
+    *iniciar: 
+    *menu: 
+    *mostrarButaques: 
+    *mostrarButaquesPersona:
+    *reservarButaca: 
+    *anularReserva: 
+    *anularReservaPersona:
+    *introduirPersona:
+    *demanarDadesInicials: 
+    *introduirFila: 
+    *introduirSeient:
  */
 public class Cinema {
 	private int numberOfRows;
@@ -38,35 +38,38 @@ public class Cinema {
 	}
 	
 	public void initializeApp () {
-		int selectedOption = menu();
-		switch(selectedOption)
-	      {
-	       case 1: //mostrarButaques: Mostra totes les butaques reservades.
-	    	   showAllReservedSeats();  
-	    	   break;
+		boolean exit=false;
+		do 
+		{
+		 int selectedOption = menu();
+		 switch(selectedOption)
+	     {
+	      case 1: //mostrarButaques: 
+	    	  showAllReservedSeats();  
+	    	  break;
 	    	   
-	       case 2: //mostrarButaquesPersona: Demana el nom de la persona que ha fet la reserva i 
-	    	   //mostra totes les butaques reservades per aquesta persona.
-	    	   showCostumersReservation();
-	    	   break;
+	      case 2: //mostrarButaquesPersona: 
+	    	  showCostumersReservation();
+	    	  break;
 	    	   
-	       case 3: //reservarButaca
-	    	   seatReservation();
-	    	   break;
+	      case 3: //reservarButaca
+	    	  seatReservation();
+	    	  break;
 	    	   
-		   case 4: //anularReserva
-	    	   cancelSeatReservation();
-			   break;
-
-		   case 5: //Cancel costumer's reservation
-			   //anularReservaPersona: Demana a l’usuari/ària el nom de la persona (crida al mètode introduirPersona) 
-			   //i elimina les butaques reservades per la persona introduïda.
-	    	   break;
-
-	       case 0:
-	    	   System.out.println("Goodbye, come back soon!");
-	    	   break;
-	       }
+		  case 4: //anularReserva
+	    	  cancelSeatReservation();
+			  break;
+	
+		  case 5: //anularReservaPersona: 
+	    	  cancelPersonReservations();
+			  break;
+	
+	      case 0:
+	    	  exit=true;
+	    	  System.out.println("Goodbye, come back soon!");
+	    	  break;
+		      }
+		} while(!exit);
 	}
 	
 	public int menu () {
@@ -85,51 +88,116 @@ public class Cinema {
 	}
 	
 	public void showCostumersReservation () {
-		String reservationName = Input.scanningForString("Please indicate the name in the reservation");
+		String reservationName = introducePerson();
 		System.out.println("Reservations for " +reservationName+ ":");
 		for (int i = 0; i < seatManager.getSeatsList().size(); i++) {
 			if (reservationName.equalsIgnoreCase(seatManager.getSeatsList().get(i).getReservationName())) {
-				System.out.println(seatManager.getSeatsList().get(i));
+				System.out.print(seatManager.getSeatsList().get(i));
 			}
 		}
 	}
 	
-	//Demana a l’usuari/ària un número de fila (crida al mètode introduirFila), un número de seient 
-	//(crida al mètode introduirSeient), el nom de la persona que fa la reserva (crida al mètode introduirPersona) 
-	//i reserva la butaca.
-	public void seatReservation (){
-		int rowNumber = introduceRowNumber();
-		int seatNumber = introduceSeatNumber();
-		String reservationName = introducePerson();
-		//seatManager.addSeat(rowNumber, seatNumber, reservationName); //AVIAM JAVA UN MOMENTET SIUSPLAU PERQUÈ SE M'ACUMULEN LES EXCEPTIONS JODER
+	public void seatReservation () {
+		seatManager.addSeat(introduceRowNumber(), introduceSeatNumber(), introducePerson()); 
 	}
 	
-	//anularReserva: Demana a l’usuari/ària un número de fila (crida al mètode introduirFila), un número de seient 
-	//(crida al mètode introduirSeient) i elimina la reserva de la butaca.
 	public void cancelSeatReservation () {
-		int rowNumber = introduceRowNumber();
-		int seatNumber = introduceSeatNumber();
-		//seatManager.removeSeat(rowNumber, seatNumber); MIAMIAMAIMIAMAIMASIMMAIMSAIJFSKJNDALFJ EXCEPTION
+		seatManager.removeSeat(introduceRowNumber(), introduceSeatNumber()); 
+	}
+	
+	public void cancelPersonReservations() {
+		String reservationsName = introducePerson();
+		int seatsCancelled = 0;
+		Iterator <Seat> it = seatManager.getSeatsList().iterator();
+		while (it.hasNext()) {
+			Seat currentSeat = it.next();
+			if (currentSeat.getReservationName().equals(reservationsName)) {
+				seatManager.removeSeat(currentSeat.getRowNumber(),currentSeat.getSeatNumber());
+				seatsCancelled++;
+			}
+		}
+		System.out.println(seatsCancelled+ " seat reservations from " +reservationsName+ " have been cancelled");
 	}
 	
 	public int introduceRowNumber () {
-		/*try {
-			//???????????????????????khbfskjadbnkbsdnlbindflnbdlblk
-		} catch {
-			
-		}*/
-		return 0;
+		int inputRow = 0;
+	    boolean correct = false;
+	    do {
+	        try {
+	        	inputRow = Input.scanningForInt("Please introduce the row number");
+	        	if (inputRow < 1 || inputRow > this.numberOfRows) {
+	        		correct = false;
+	        		throw new IncorrectRowException();
+	        	} else {
+	        		correct = true;
+	        	}
+	        } catch (IncorrectRowException ex) {
+	        	System.out.println("ERROR. Please introduce a number between 1 and " +numberOfRows+ "\n");
+	        }
+	    } while (!correct);
+	    return inputRow;
 	}
 	
 	public int introduceSeatNumber () {
-		return 0;
+		int inputSeat = 0;
+	    boolean correct = false;
+	    do {
+	        try {
+	        	inputSeat = Input.scanningForInt("Please introduce the seat number");
+	        	if (inputSeat < 1 || inputSeat > this.seatsForRow) {
+	        		correct = false;
+	        		throw new IncorrectRowException();
+	        	} else {
+	        		correct = true;
+	        	}
+	        } catch (IncorrectRowException ex) {
+	        	System.out.println("ERROR. Please introduce a number between 1 and " +seatsForRow+ "\n");
+	        }
+	    } while (!correct);
+	    return inputSeat;
 	}
 	
-	//introduirPersona: demana a l’usuari/ària el nom de la persona i el retorna si és correcte. 
-	//Si conté números, llença una excepció personalitzada ExcepcioNomPersonaIncorrecte.
 	public String introducePerson () {
-		String reservationName = Input.scanningForString("Please indicate reservation name");
-		//aquí un split de string a unitats i if unitat castejada a int igual a unitat llavors throw exception?
-		return reservationName;
+		String inputName = "";
+	    boolean correct = false;
+	    Scanner setName = new Scanner(System.in);
+	    do {
+	        System.out.println("Please introduce the name for the reservation");
+	        try {
+	        	inputName = setName.nextLine();
+	        	correct = true;
+	        	char[] splitName = inputName.toCharArray();
+	    		for (char unit : splitName) {
+	    			if (Character.isDigit(unit)) {
+	    				correct = false;
+	    				throw new IncorrectNameException();
+	    			}
+	    		}	        	
+	        } catch (IncorrectNameException ex) {
+	        	System.out.println("ERROR. The name cannot contain any numbers\n");
+	        }
+	    } while (!correct);		
+		return inputName;
+	}
+	
+	//nova classe fila incorrecte extends Exception
+	public class IncorrectRowException extends Exception {
+		public IncorrectRowException () {
+			super();
+		}
+	}
+	
+	//nova classe seient incorrecte extends Exception
+	public class IncorrectSeatException extends Exception {
+		public IncorrectSeatException () {
+			super();
+		}
+	}
+	
+	//nova classe nom incorrecte extends Exception
+	public class IncorrectNameException extends Exception {
+		public IncorrectNameException () {
+			super();
+		}
 	}
 }

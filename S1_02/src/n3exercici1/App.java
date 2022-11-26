@@ -19,22 +19,7 @@ public class App {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Cinema cinemas = new Cinema();
-		
-	    boolean exit=false;
-	    do
-	    {
-	      
-	      System.out.println("0.Exit\n");
-	      int selectedOption = Input.scanningForInt("Please select an option number from the menu:");
-	      switch(selectedOption)
-	      {
-	       case 0:
-	    	   exit=true;
-	    	   System.out.println("Goodbye, come back soon!");
-	    	   break;
-	       	  }
-	      }while(!exit);
+		Cinema cinema1 = new Cinema();
+		cinema1.initializeApp();
 	}
-
 }

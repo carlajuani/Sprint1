@@ -3,14 +3,13 @@ package n3exercici1;
 import java.util.*;
 
 import n2exercici1.Input;
+import n3exercici1.Cinema.IncorrectRowException;
 
 /* Contindrà un ArrayList de butaques i els mètodes necessaris per afegir, eliminar i cercar les butaques a l’ArrayList.
 Mètodes:
-    afegirButaca
-    eliminarButaca: 
-    cercarButaca:  
-    
- */
+    *afegirButaca
+    *eliminarButaca: 
+    *cercarButaca:  */
 
 public class SeatManager {
 	private ArrayList<Seat> reservedSeats;
@@ -23,30 +22,34 @@ public class SeatManager {
 		return reservedSeats;
 	}
 	
-    //i l’afegirà a l’ArrayList. Si la fila i el seient de la butaca rebuda com a paràmetre coincideixen amb el d’una butaca 
-    //que ja es trobi a l’ArrayList (s’utilitzarà el mètode cercarButaca), es llençarà l’excepció personalitzada ExcepcioButacaOcupada.
-	public void addSeat (int rowNumber, int seatNumber, String reservationName) throws Exception {
-		if (findSeatsIndex(rowNumber, seatNumber) != -1) {
-			throw new Exception("ExceptionOccupiedSeat"); //NO ES FA AIXI HAS DE CREARLA A LA CLASSE EXCEPTION
-		} else {
-			reservedSeats.add(new Seat (rowNumber, seatNumber, ));	
-		}
+	public void addSeat (int rowNumber, int seatNumber, String reservationName) {
+		try {
+			int seatsIndex = findSeatsIndex(rowNumber, seatNumber);
+			if (seatsIndex == -1) {
+				reservedSeats.add(new Seat (rowNumber, seatNumber, reservationName));
+				System.out.println("The seat reservation was completed succesfully");
+			} else {
+				throw new OccupiedSeatException();
+			}
+        } catch (OccupiedSeatException ex) {
+        	System.out.println("ERROR. This seat already does have a reservation\n");
+        }
 	}
 	
-	//serà l’encarregat d’eliminar una butaca de l’ArrayList de butaques. Rebrà com a paràmetres el número de fila i 
-    //el seient i l’eliminarà de l’ArrayList. Si la fila i el seient no coincideixen amb el d’una butaca reservada (s’utilitzarà el mètode 
-    //cercarButaca), llençarà una excepció personalitzada ExcepcioButacaLliure.
-	public void removeSeat (int rowNumber, int seatNumber) throws Exception {
-		int seatsIndex = findSeatsIndex(rowNumber, seatNumber);
-		if (seatsIndex == -1) {
-			throw new Exception("ExceptionFreeSeat"); //NO ES FA AIXI HAS DE CREARLA A LA CLASSE EXCEPTION
-		} else {
-			reservedSeats.remove(seatsIndex);
-		}
+	public void removeSeat (int rowNumber, int seatNumber){
+		try {
+			int seatsIndex = findSeatsIndex(rowNumber, seatNumber);
+			if (seatsIndex == -1) {
+				throw new FreeSeatException();
+			} else {
+				reservedSeats.remove(seatsIndex);
+				System.out.println("The seat reservation was removed succesfully");
+			}
+        } catch (FreeSeatException ex) {
+        	System.out.println("ERROR. This seat already does not have a reservation\n");
+        }
 	}
 	
-	//Cerca a l’ArrayList de butaques, la butaca que coincideixi amb les dades rebudes com a paràmetre (fila i seient).
-	//Si la troba retornarà la posició de la butaca a l’ArrayList i si no la troba retornarà -1.
 	public int findSeatsIndex (int rowNumber, int seatNumber){
 		boolean isFound = false;
 		int seatsIndex = -1;
@@ -60,5 +63,19 @@ public class SeatManager {
 			i++;
 		}
 		return seatsIndex;
+	}
+	
+	//nova classe seient ja ocupat extends Exception
+	public class OccupiedSeatException extends Exception {
+		public OccupiedSeatException () {
+			super();
+		}
+	}
+		
+	//nova classe seient ja lliure extends Exception
+	public class FreeSeatException extends Exception {
+		public FreeSeatException () {
+			super();
+		}
 	}
 }

@@ -1,13 +1,13 @@
 package n3exercici1;
 /* Tindrà les dades d’una butaca:
 Atributs:
-    Nombre de fila.
-    Nombre de seient.
-    Persona que reserva la butaca.
+    *Nombre de fila.
+    *Nombre de seient.
+    *Persona que reserva la butaca.
 Mètodes:
-    Constructor amb tots els paràmetres.
-    Getters per tots els atributs.
-    Equals: retornarà que dues butaques són iguales si la fila i el seient són iguals.
+    *Constructor amb tots els paràmetres.
+    *Getters per tots els atributs.
+    *Equals: retornarà que dues butaques són iguales si la fila i el seient són iguals.
     toString: retornarà un String amb el següent format: “Fila: 5, Seient: 20, Persona: Maria Febrer”
  */
 
