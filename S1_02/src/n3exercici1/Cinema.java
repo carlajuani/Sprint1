@@ -146,11 +146,11 @@ public class Cinema {
 	        	inputSeat = Input.scanningForInt("Please introduce the seat number");
 	        	if (inputSeat < 1 || inputSeat > this.seatsForRow) {
 	        		correct = false;
-	        		throw new IncorrectRowException();
+	        		throw new IncorrectSeatException();
 	        	} else {
 	        		correct = true;
 	        	}
-	        } catch (IncorrectRowException ex) {
+	        } catch (IncorrectSeatException ex) {
 	        	System.out.println("ERROR. Please introduce a number between 1 and " +seatsForRow+ "\n");
 	        }
 	    } while (!correct);
