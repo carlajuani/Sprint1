@@ -116,7 +116,6 @@ public class Input {
 	        System.out.println(message);
 	        try {
 		        input = setInput.nextLine();
-		        System.out.println(input);
 	        	if (input.length() < 2) {
 	        		throw new Exception();
 	        	} else {
