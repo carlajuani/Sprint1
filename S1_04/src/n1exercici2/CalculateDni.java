@@ -9,10 +9,11 @@ import java.util.Arrays;
 
 public class CalculateDni {
 	
-	public static char calcDni (int numbers) {
+	public static char calcDni (String numbers) {
+		int standardizedNumbers = Integer.valueOf(numbers);
 		ArrayList<Character> lettersList = new ArrayList<>();
 		lettersList.addAll(Arrays.asList('T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'));
-		char correctLetter = lettersList.get(numbers%23);
+		char correctLetter = lettersList.get(standardizedNumbers%23);
 		return correctLetter;
 	}
 }

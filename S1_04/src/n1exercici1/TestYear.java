@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-class Testn1ex1 {
+class TestYear {
 
 	@Test
 	final void testSize() {
