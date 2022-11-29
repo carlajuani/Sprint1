@@ -1,14 +1,17 @@
 package n1exercici3;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 class TestExceptionApp {
 
 	@Test
-	final void test() {
-		fail("Not yet implemented"); // TODO
+	public void test() {
+		Assertions.assertThrows( IndexOutOfBoundsException.class, new Executable() {
+			public void execute() throws Throwable{
+				App.methodForTesting(4);
+			}
+		});
 	}
-
 }
