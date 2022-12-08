@@ -1,0 +1,5 @@
+PLAYER	SCORE
+Carla 2453	3pts
+adria		5pts
+DF		0pts
+mIAU		2pts
