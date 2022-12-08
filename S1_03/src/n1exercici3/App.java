@@ -24,9 +24,8 @@ import n2exercici1.Input;
 public class App {
 
 	public static void main(String[] args){
-		// TODO Auto-generated method stub
 		
-		/*we create a Hashmap with 2Strings objects by setting a bufferedReader from a fileReader from an existing file txt, 
+		/**we create a Hashmap with 2Strings objects by setting a bufferedReader from a fileReader from an existing file txt, 
 		*then with readLine method we separate the two Strings available in two variables, country and capital,
 		*and finally we put them as an object with key Country and Value Capital in the HashMap and close the buffer streaming
 		*when the line is empty ("", we set it up backwards because we need the comparing primitive to be read in Java and not
@@ -53,7 +52,7 @@ public class App {
 			System.out.print("IOException");
 		}
 		
-		/* We create a new array of objects with the keySet of the Hashmap.
+		/** We create a new array of objects with the keySet of the Hashmap.
 		 * We create a variable with a String scanner personalized with the class Input(previous exercise) 
 		 * with the name of the player. 
 		 * We set up number of rounds and score in int variables and a new ArrayList where to put the played countries
@@ -63,7 +62,7 @@ public class App {
 		 * to repeat more than once in the same round but this way we make sure either way, specially if we want to 
 		 * increase the number of rounds in the future).
 		 * Once we check, we add it to the list of countries played in a string and ask the capital with a string scanner.
-		 * Finally we compare the standarized strings (through a method) ScanneredString answer, and the value (capital) 
+		 * Finally we compare the standardized strings (through a method) ScanneredString answer, and the value (capital) 
 		 * that corresponds with the key played(country) to increase the score.
 		 * Once the all the rounds played we print the score*/
 		Object[] countriesToPlay = countriesAndCapitals.keySet().toArray();
@@ -88,11 +87,11 @@ public class App {
 		}	
 		System.out.println(inputName+ ": Your score is " +score+ "pts");
 		
-		/* We construct the String line we want to write on the file Ranking.txt, and we create a buffered writer from
+		/** We construct the String line we want to write on the file Ranking.txt, and we create a buffered writer from
 		 * a file writer with the existing file (the true in the constructor). Then we use the static method write,
 		 * we set up a new line (method) for the next time to start one line below, and close the buffer, all wrapped
 		 * in a tryCatch structure in case it throws IOException if there is no file to be found */
-		String scoreToRanking = inputName+ "\t" +score+ "pts";
+		String scoreToRanking = inputName+ "\t\t" +score+ "pts";
 		try {
 			FileWriter rankingUpdate = new FileWriter ("C:/Users/carla/git/Sprint1/S1_03/src/n1exercici3/Ranking.txt", true);
 			BufferedWriter rankingUpdateBr = new BufferedWriter (rankingUpdate);
