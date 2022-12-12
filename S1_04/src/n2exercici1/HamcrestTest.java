@@ -18,7 +18,9 @@ import org.junit.jupiter.api.Test;
 
 
 class HamcrestTest {
-
+	/*creem un mètode personalitzat Matcher (FeatureMatcher) per comparar, definint la feature a comparar, 
+	 *length, i la descripció del test, i després fem un test amb assertThat i 
+	 * el nostre matcher personalitzat, amb _is_ com a shortcut pel mètode Matcher isEqualTo*/
 	public static Matcher<String> length(Matcher<? super Integer> matcher) {
 	    FeatureMatcher<String, Integer> featureMatcher = new FeatureMatcher<>(matcher,
 	            "a String of length that", "length") {

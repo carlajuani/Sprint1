@@ -10,6 +10,7 @@ import java.util.Arrays;
 public class CalculateDni {
 	
 	public static char calcDni (String numbers) {
+		//per conservar el 0 inicial entrem numbers com a String i després castejem a int amb un valueOf
 		int standardizedNumbers = Integer.valueOf(numbers);
 		ArrayList<Character> lettersList = new ArrayList<>();
 		lettersList.addAll(Arrays.asList('T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'));
