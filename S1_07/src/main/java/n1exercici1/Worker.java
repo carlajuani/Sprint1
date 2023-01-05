@@ -1,9 +1,9 @@
 package n1exercici1;
 
-public abstract class Worker {
-	protected String name;
-	protected String surname;
-	protected int hourlySalary;
+public class Worker {
+	private String name;
+	private String surname;
+	private int hourlySalary;
 
 	public Worker (String name, String surname, int hourlySalary) {
 		this.name = name;

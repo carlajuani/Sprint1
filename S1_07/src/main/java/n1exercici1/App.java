@@ -15,11 +15,14 @@ public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		OnlineWorker onlineWorker = new OnlineWorker ("JosepMaria", "Puigdenvalls", 15);
-		OnsiteWorker onsiteWorker = new OnsiteWorker ("Florencia", "Casamajor", 18);
-		
-		System.out.println(onsiteWorker.calculateMonthlySalary(24));
-		System.out.println(onlineWorker.calculateMonthlySalary(35));	
+		/*we create 3 kinds of workers and call the same method, the 2 lasts ones are overrided methods from the
+		 * generic worker method, that change the result with the same input numbers */
+		Worker genericWorker = new Worker ("PersonsName", "PersonsSurname", 16);
+		OnlineWorker onlineWorker = new OnlineWorker ("JosepMaria", "Puigdenvalls", 16);
+		OnsiteWorker onsiteWorker = new OnsiteWorker ("Florencia", "Casamajor", 16);
+		System.out.println(genericWorker.calculateMonthlySalary(140)+ "€ for a generic worker");
+		System.out.println(onsiteWorker.calculateMonthlySalary(140)+ "€ for an onsite worker");
+		System.out.println(onlineWorker.calculateMonthlySalary(140)+ "€ for an online worker");	
 	}
 
 }
