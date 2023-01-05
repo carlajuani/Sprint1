@@ -8,7 +8,18 @@ public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Transform transformation = (word) -> {
+			String reversedWord = "";
+	        for(int i = word.length()-1; i >= 0; i--)
+	        	reversedWord += word.charAt(i);
+	        return reversedWord;
+		};
+		System.out.println(transformation.reverse("Supercalifragilistic"));
+	}
+	
+	@FunctionalInterface
+	interface Transform {
+		public String reverse(String word);
 	}
 
 }

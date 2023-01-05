@@ -6,7 +6,13 @@ public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		NumPi numPi = () -> 3.1415;
+		System.out.println(numPi.getPiValue());
+	}
+	
+	@FunctionalInterface
+	interface NumPi {
+		public double getPiValue();
 	}
 
 }
