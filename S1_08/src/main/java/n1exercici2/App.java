@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
 public class App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		/*We create a list of strings and a second empty list, and in the second we create a stream with the first and filter it with the strings
+		 * that meet the 2 conditions, containing an o, and having more than length 5, and collect it into a list again and print it*/
 		List<String> listComplete = Arrays.asList("Cosa","Marmota","Volatil","Cova","Cirera","Valor","Blau");
 		List<String> listWithO = new ArrayList<>();
 		listWithO = listComplete.stream().filter(word -> word.contains("o") && word.length()>5).collect(Collectors.toList());
