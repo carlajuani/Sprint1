@@ -22,8 +22,13 @@ C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici1>dir
 
 C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici1>javac DirectorySorted.java
 
-C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici1>java DirectorySorted C:\Users\carla\Desktop
-Error: Could not find or load main class DirectorySorted
-Caused by: java.lang.NoClassDefFoundError: n1exercici1/DirectorySorted (wrong name: DirectorySorted)
+C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici1>java DirectorySorted C:/Users/carla/git/Sprint1/S1_05/src/main/java/n1exercici1
+n1exercici1
+n1exercici2
+n1exercici3
+n1exercici4
+n1exercici5
+n2exercici1
+n3exercici1
 
 C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici1>
