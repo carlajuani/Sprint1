@@ -14,9 +14,9 @@ import java.util.Arrays;
 public class TxtFilesReader {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		sortBranchedDirectory("C:/Users/carla/git/Sprint1/S1_05/src/main");
-		//args[0]
+		// we call the previous method that sorts and prints the files in the directory with the path from the console's first argument
+		sortBranchedDirectory(args[0]);
+		//we call the method to print all contains of the txt updated with its path
 		printTxt("C:/Users/carla/git/Sprint1/S1_05/src/main/resources/BranchedDirectory.txt"); 
 	}
 	
@@ -50,6 +50,7 @@ public class TxtFilesReader {
 		}
 	}
 	
+	//it prints line by line the content of the txt file previously written, with its filepath as argument
 	public static void printTxt (String filePath) {
 		try {
 			File newFile = new File (filePath);
