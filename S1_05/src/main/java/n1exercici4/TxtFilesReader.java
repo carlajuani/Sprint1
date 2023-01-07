@@ -16,7 +16,7 @@ public class TxtFilesReader {
 	public static void main(String[] args) {
 		// we call the previous method that sorts and prints the files in the directory with the path from the console's first argument
 		sortBranchedDirectory(args[0]);
-		//we call the method to print all contains of the txt updated with its path
+		//we call the method to print all contains of the txt updated with its path from the console's second argument
 		printTxt(args[1]); 
 	}
 	
