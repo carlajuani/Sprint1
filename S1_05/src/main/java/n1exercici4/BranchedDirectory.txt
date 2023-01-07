@@ -1,25 +1,3 @@
-Microsoft Windows [Version 10.0.22000.1335]
-(c) Microsoft Corporation. All rights reserved.
-
-C:\Users\carla>cd git\Sprint1\S1_05\src\main\java\n1exercici4
-
-C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici4>dir
- Volume in drive C has no label.
- Volume Serial Number is 863B-2389
-
- Directory of C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici4
-
-01/07/2023  02:06 PM    <DIR>          .
-01/07/2023  01:45 PM    <DIR>          ..
-01/07/2023  02:03 PM                 0 BranchedDirectory.txt
-01/07/2023  02:03 PM                 0 Readme.txt
-01/07/2023  02:05 PM             2,567 TxtFilesReader.java
-               3 File(s)          5,229 bytes
-               2 Dir(s)  934,571,421,696 bytes free
-
-C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici4>javac TxtFilesReader.java
-
-C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici4>java TxtFilesReader C:/Users/carla/git/Sprint1/S1_05/src/main C:/Users/carla/git/Sprint1/S1_05/src/main/java/n1exercici4/BranchedDirectory.txt
 (D) java C:\Users\carla\git\Sprint1\S1_05\src\main\java 12/22/2022 10:24:35
 (D) n1exercici1 C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici1 01/07/2023 13:25:06
 (F) DirectorySorted.class C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici1\DirectorySorted.class 01/07/2023 13:25:06
@@ -44,20 +22,3 @@ C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici4>java TxtFilesReader C
 (D) resources C:\Users\carla\git\Sprint1\S1_05\src\main\resources 01/07/2023 00:41:36
 (F) BranchedDirectory.txt C:\Users\carla\git\Sprint1\S1_05\src\main\resources\BranchedDirectory.txt 01/07/2023 13:43:32
 (F) ReadMe.txt C:\Users\carla\git\Sprint1\S1_05\src\main\resources\ReadMe.txt 12/22/2022 09:49:01
-
-C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici4>dir
- Volume in drive C has no label.
- Volume Serial Number is 863B-2389
-
- Directory of C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici4
-
-01/07/2023  02:08 PM    <DIR>          .
-01/07/2023  01:45 PM    <DIR>          ..
-01/07/2023  02:08 PM             2,662 BranchedDirectory.txt
-01/07/2023  02:03 PM                 0 Readme.txt
-01/07/2023  02:08 PM             2,918 TxtFilesReader.class
-01/07/2023  02:05 PM             2,567 TxtFilesReader.java
-               4 File(s)         11,815 bytes
-               2 Dir(s)  934,570,123,264 bytes free
-
-C:\Users\carla\git\Sprint1\S1_05\src\main\java\n1exercici4>

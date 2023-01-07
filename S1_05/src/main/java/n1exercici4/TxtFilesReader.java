@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class TxtFilesReader {
 
 	public static void main(String[] args) {
-		// we call the previous method that sorts and prints the files in the directory with the path from the console's first argument
+		// we call the previous method that sorts and writes in a txt the files in the directory with the path from the console's first argument
 		sortBranchedDirectory(args[0]);
 		//we call the method to print all contains of the txt updated with its path from the console's second argument
 		printTxt(args[1]); 
@@ -40,7 +40,7 @@ public class TxtFilesReader {
 	//Print line by line in the txt file. (It doesn't erase the previous)
 	public static void writeInTxtFile (String line) {
 		try {
-			FileWriter fileUpdate = new FileWriter ("C:/Users/carla/git/Sprint1/S1_05/src/main/resources/BranchedDirectory.txt", true);
+			FileWriter fileUpdate = new FileWriter ("C:/Users/carla/git/Sprint1/S1_05/src/main/java/n1exercici4/BranchedDirectory.txt", true);
 			BufferedWriter fileUpdateBr = new BufferedWriter (fileUpdate);
 			fileUpdateBr.write(line);
 			fileUpdateBr.newLine();
