@@ -10,10 +10,14 @@ import java.util.Arrays;
 public class BranchedDirectorySorted {
 
 	public static void main(String[] args) {
+		//we call the method to sort and print the directories and files with the console's first argument as path
 		sortBranchedDirectory(args[0]);
-		//"C:/Users/carla/git/Sprint1/S1_05/src/main"
 	}
 	
+	/*method to create a new file with the path args, list the files into a string array, creating a simpledateformat to print the date 
+	 * in the files standardized, and with a forEach loop we create a String with the name, path and formatted last modified date. If the file
+	 * is a directory, we print a D and the string, and call the method again with it's path to access and print the files within, if is a simple
+	 * file, we print it directly with a F.	*/
 	public static void sortBranchedDirectory (String args) {
 		File directory = new File(args);
 		File[] directoryList = directory.listFiles();

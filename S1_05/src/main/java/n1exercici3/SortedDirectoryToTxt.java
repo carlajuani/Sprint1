@@ -11,9 +11,7 @@ import java.util.Arrays;
 public class SortedDirectoryToTxt {
 	
 	public static void main(String[] args) {
-		sortBranchedDirectory(args[0]);
-		//"C:/Users/carla/git/Sprint1/S1_05/src/main"
-		
+		sortBranchedDirectory(args[0]);	
 	}
 	
 	public static void sortBranchedDirectory(String args) {
@@ -33,10 +31,10 @@ public class SortedDirectoryToTxt {
 		}
 	}
 	
-	//Print line by line in the txt file. (It doesn't erase the previous)
+	//Print line by line in the txt file. (It doesn't erase the previous, it starts below the last line written)
 	public static void writeInTxtFile (String line) {
 		try {
-			FileWriter fileUpdate = new FileWriter ("C:/Users/carla/git/Sprint1/S1_05/src/main/resources/BranchedDirectory.txt", true);
+			FileWriter fileUpdate = new FileWriter ("C:/Users/carla/git/Sprint1/S1_05/src/main/java/n1exercici3/SortedDirectory.txt", true);
 			BufferedWriter fileUpdateBr = new BufferedWriter (fileUpdate);
 			fileUpdateBr.write(line);
 			fileUpdateBr.newLine();
