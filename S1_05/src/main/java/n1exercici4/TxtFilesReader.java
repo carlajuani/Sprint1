@@ -1,8 +1,11 @@
 package n1exercici4;
 /* Afegeix la funcionalitat de llegir qualsevol fitxer TXT i mostra el seu contingut per consola. */
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -12,8 +15,9 @@ public class TxtFilesReader {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		sortBranchedDirectory(args[0]);
-		//"C:/Users/carla/git/Sprint1/S1_05/src/main"
+		sortBranchedDirectory("C:/Users/carla/git/Sprint1/S1_05/src/main");
+		//args[0]
+		printTxt("C:/Users/carla/git/Sprint1/S1_05/src/main/resources/BranchedDirectory.txt"); 
 	}
 	
 	public static void sortBranchedDirectory(String args) {
@@ -31,7 +35,6 @@ public class TxtFilesReader {
 				writeInTxtFile("(F) " +fileToPrint);
 			}
 		}
-		printTxt("C:/Users/carla/git/Sprint1/S1_05/src/main/resources/BranchedDirectory.txt"); //FALTA CONSULTAR EXERCICI 3 DELS COUNTRIES
 	}
 	
 	//Print line by line in the txt file. (It doesn't erase the previous)
@@ -48,7 +51,22 @@ public class TxtFilesReader {
 	}
 	
 	public static void printTxt (String filePath) {
-		System.out.println();
+		try {
+			File newFile = new File (filePath);
+			FileReader fr = new FileReader (newFile);
+			BufferedReader br = new BufferedReader(fr);
+			String line = br.readLine();
+			while(!line.equals(null)) {
+				System.out.println(line);
+				line = br.readLine();
+			}
+			br.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("FileNotFoundException");
+		} catch (IOException ex) {
+			System.out.print("IOException");
+		} catch (NullPointerException e) {
+			System.out.println("");
+		}
 	}
-
 }
